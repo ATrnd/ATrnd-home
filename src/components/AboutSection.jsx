@@ -4,6 +4,9 @@ import aboutMobile from '/images/atrnd-about-mobile-v1.png'
 import aboutDesktop from '/images/atrnd-about-v1.png'
 
 function AboutSection({ onClick, isGlitchActive, onHover }) {
+  console.log('About mobile image URL:', aboutMobile)
+  console.log('About desktop image URL:', aboutDesktop)
+
   return (
     <div
       className={`relative cursor-pointer group overflow-hidden ${styles.sectionContainer} ${styles.aboutSection}`}
