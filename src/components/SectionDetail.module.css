@@ -1,0 +1,141 @@
+/* Main container for section detail content */
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dynamic ordering for section detail elements */
+.headerContainer {
+  order: 1; /* Default: title first */
+}
+
+.contentContainer {
+  order: 2; /* Default: content second */
+}
+
+.backButtonContainer {
+  margin-left: 14px;
+  margin-bottom: 2rem;
+}
+
+.backButtonContainer480 {
+  margin-left: 14px;
+  margin-bottom: 2rem;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.imageContainer480 {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+/* Button + Image container for all breakpoints */
+.buttonImageContainer {
+  order: 4; /* Default: after header and content */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Default visibility - show buttonImageContainer, hide standalone elements */
+.imageContainer {
+  display: none;
+}
+
+.backButtonContainer {
+  display: none;
+}
+
+.buttonImageContainer {
+  display: flex;
+}
+
+/* 480px breakpoint - side-by-side for button and image */
+@media (min-width: 480px) {
+
+  .buttonImageContainer {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .backButtonContainer480 {
+    margin-bottom: 0;
+    margin-right: 10px;
+    margin-top: 41px;
+    flex-shrink: 0;
+  }
+
+  .imageContainer480 {
+    justify-content: flex-start;
+    flex: 1;
+  }
+}
+
+/* 768px breakpoint - customizable ordering */
+@media (min-width: 768px) {
+  /* Show standalone elements, hide buttonImageContainer */
+  .imageContainer {
+    display: flex;
+    order: 1; /* Banner first */
+    justify-content: flex-start;
+    margin-bottom: 41px;
+  }
+
+  .headerContainer { order: 2; } /* Header second */
+  .contentContainer { order: 3; } /* Content third */
+
+  .backButtonContainer {
+    display: flex;
+    order: 4; /* Back button last */
+    margin-bottom: 2rem;
+  }
+
+  .buttonImageContainer {
+    display: none; /* Hide the wrapper container */
+  }
+}
+
+/* 1024px+ desktop layout */
+@media (min-width: 1024px) {
+  .mainContainer {
+    margin-left: 41px;
+  }
+
+  .headerContainer {
+    width: 626px;
+  }
+
+  .contentContainer {
+    width: 626px;
+  }
+}
+
+/* 1556px+ large desktop layout */
+@media (min-width: 1556px) {
+  .mainContainer {
+    margin-left: 173px;
+  }
+
+  .headerContainer {
+    width: 626px;
+  }
+
+  .contentContainer {
+    width: 626px;
+  }
+}
+
+/* Example: Alternative ordering at different breakpoints */
+/* Uncomment and modify as needed */
+/*
+@media (min-width: 1024px) {
+  .headerContainer { order: 1; }
+  .imageContainer { order: 2; }
+  .contentContainer { order: 3; }
+  .backButtonContainer { order: 4; }
+}
+*/

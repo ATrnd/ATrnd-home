@@ -1,0 +1,78 @@
+/* Responsive section dimensions */
+.sectionContainer {
+  width: 341.4px;
+  height: 756.8px;
+  transition: transform 0.1s ease-out;
+}
+
+/* Service page banner - no hover effects */
+.servicePageContainer {
+  width: 341.4px;
+  height: 756.8px;
+}
+
+/* Hover shrink effect - only for homepage sections */
+.sectionContainer:hover {
+  transform: scale(0.96);
+}
+
+/* Smooth transitions for background images */
+.sectionContainer > div {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* 768px breakpoint - switch to landscape dimensions */
+@media (min-width: 768px) {
+  .sectionContainer {
+    width: 756.8px;
+    height: 341.4px;
+  }
+
+  .servicePageContainer {
+    width: 756.8px;
+    height: 341.4px;
+  }
+}
+
+/* Dynamic positioning with flexbox order */
+.aboutSection {
+  order: 1; /* Always first */
+}
+
+.workSection {
+  order: 2; /* Updated: second position */
+}
+
+.visionSection {
+  order: 3; /* Updated: third position */
+}
+
+.contactSection {
+  order: 4; /* Updated: fourth position */
+}
+
+/* Example: Different order at different breakpoints */
+/* You can customize these as needed for different breakpoints */
+@media (min-width: 480px) {
+  /* 480px+ ordering - customize as needed */
+  .aboutSection { order: 1; }
+  .workSection { order: 2; }
+  .visionSection { order: 3; }
+  .contactSection { order: 4; }
+}
+
+@media (min-width: 768px) {
+  /* 768px+ ordering - Vision and Work swapped */
+  .aboutSection { order: 1; }
+  .visionSection { order: 2; }
+  .workSection { order: 3; }
+  .contactSection { order: 4; }
+}
+
+@media (min-width: 1556px) {
+  /* 1556px+ 2x2 grid layout */
+  .aboutSection { order: 1; }
+  .visionSection { order: 2; }
+  .workSection { order: 3; }
+  .contactSection { order: 4; }
+}

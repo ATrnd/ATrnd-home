@@ -1,0 +1,55 @@
+/* Homepage grid container */
+.sectionsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  width: fit-content;
+}
+
+/* Desktop grid wrapper for centering */
+.gridWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+  padding: 1rem;
+}
+
+/* Center circle - hidden by default */
+.centerCircle {
+  display: none;
+}
+
+/* 1556px+ 2x2 grid layout with centering */
+@media (min-width: 1556px) {
+  .gridWrapper {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .sectionsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+    width: auto;
+    max-width: 1600px;
+  }
+
+  /* Center black circle for desktop 2x2 grid */
+  .centerCircle {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 41px;
+    height: 41px;
+    background-color: black;
+    border-radius: 50%;
+    z-index: 10;
+    pointer-events: none;
+  }
+}

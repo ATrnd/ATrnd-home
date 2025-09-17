@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+/* Font Face Declarations */
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/fonts/orbitron-medium-webfont.woff2') format('woff2'),
+       url('/fonts/orbitron-medium-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM 3270';
+  src: url('/fonts/font3270-webfont.woff2') format('woff2'),
+       url('/fonts/font3270-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom CSS Properties for Fonts */
+:root {
+  --font-orbitron: 'Orbitron', sans-serif;
+  --font-ibm-3270: 'IBM 3270', 'Courier New', monospace;
+}
+
+/* Desktop background - only on 768px+ */
+@media (min-width: 768px) {
+  .desktop-bg {
+    background-image: url('/images/bg_0.1.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+}
