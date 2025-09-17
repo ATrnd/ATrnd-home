@@ -1,5 +1,7 @@
 import styles from './Section.module.css'
 import GlitchCanvas from './GlitchCanvas'
+import aboutMobile from '/images/atrnd-about-mobile-v1.png'
+import aboutDesktop from '/images/atrnd-about-v1.png'
 
 function AboutSection({ onClick, isGlitchActive, onHover }) {
   return (
@@ -12,19 +14,19 @@ function AboutSection({ onClick, isGlitchActive, onHover }) {
       {/* Mobile Image - 375px to 767px */}
       <div
         className="absolute inset-0 bg-contain bg-center bg-no-repeat md:hidden"
-        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/atrnd-about-mobile-v1.png)` }}
+        style={{ backgroundImage: `url(${aboutMobile})` }}
       ></div>
 
       {/* Desktop Image - 768px and up */}
       <div
         className="absolute inset-0 bg-contain bg-center bg-no-repeat hidden md:block"
-        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/atrnd-about-v1.png)` }}
+        style={{ backgroundImage: `url(${aboutDesktop})` }}
       ></div>
 
       {/* Glitch Effect Overlay */}
       <GlitchCanvas
-        imageSrc={`${import.meta.env.BASE_URL}images/atrnd-about-v1.png`}
-        mobileImageSrc={`${import.meta.env.BASE_URL}images/atrnd-about-mobile-v1.png`}
+        imageSrc={aboutDesktop}
+        mobileImageSrc={aboutMobile}
         intensity="low"
         isActive={isGlitchActive}
       />

@@ -1,5 +1,7 @@
 import styles from './Section.module.css'
 import GlitchCanvas from './GlitchCanvas'
+import visionMobile from '/images/atrnd-vision-mobile-v1.png'
+import visionDesktop from '/images/atrnd-vision-v1.png'
 
 function VisionSection({ onClick, isGlitchActive, onHover }) {
   return (
@@ -12,19 +14,19 @@ function VisionSection({ onClick, isGlitchActive, onHover }) {
       {/* Mobile Image */}
       <div
         className="absolute inset-0 bg-contain bg-center bg-no-repeat md:hidden"
-        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/atrnd-vision-mobile-v1.png)` }}
+        style={{ backgroundImage: `url(${visionMobile})` }}
       ></div>
 
       {/* Desktop Image */}
       <div
         className="absolute inset-0 bg-contain bg-center bg-no-repeat hidden md:block"
-        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/atrnd-vision-v1.png)` }}
+        style={{ backgroundImage: `url(${visionDesktop})` }}
       ></div>
 
       {/* Glitch Effect Overlay */}
       <GlitchCanvas
-        imageSrc={`${import.meta.env.BASE_URL}images/atrnd-vision-v1.png`}
-        mobileImageSrc={`${import.meta.env.BASE_URL}images/atrnd-vision-mobile-v1.png`}
+        imageSrc={visionDesktop}
+        mobileImageSrc={visionMobile}
         intensity="low"
         isActive={isGlitchActive}
       />
