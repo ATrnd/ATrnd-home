@@ -13,8 +13,8 @@ I've been doing this for a while, sitting in dark rooms, formalizing ideas about
 Of course there's ups and downs, distractions, and a bit of ADHD-fueled depression.
 But I keep going.
 Vibing in the dark forest.`,
-    image: '/images/atrnd-about-mobile-v1.png',
-    imageDesktop: '/images/atrnd-about-v1.png'
+    image: `${import.meta.env.BASE_URL}images/atrnd-about-mobile-v1.png`,
+    imageDesktop: `${import.meta.env.BASE_URL}images/atrnd-about-v1.png`
   },
   work: {
     title: "THE UNPREDICTABLE",
@@ -25,23 +25,23 @@ I do this every day.
 And I hope I'll get it done in a few eons from now.
 Sometimes when I feel really awkward about being unsocial, I even tweet about it.
 But that's rare.`,
-    image: '/images/atrnd-work-mobile-v1.png',
-    imageDesktop: '/images/atrnd-work-v1.png'
+    image: `${import.meta.env.BASE_URL}images/atrnd-work-mobile-v1.png`,
+    imageDesktop: `${import.meta.env.BASE_URL}images/atrnd-work-v1.png`
   },
   vision: {
     title: "WEB3 + MMO",
     content: `Web3 + ForeverGames + U & I.
 Ready to go?`,
-    image: '/images/atrnd-vision-mobile-v1.png',
-    imageDesktop: '/images/atrnd-vision-v1.png'
+    image: `${import.meta.env.BASE_URL}images/atrnd-vision-mobile-v1.png`,
+    imageDesktop: `${import.meta.env.BASE_URL}images/atrnd-vision-v1.png`
   },
   contact: {
     title: "GET IN TOUCH",
     content: `Not sure why you'd want to contact me.
 But if you ever want to build something crazy and fight for the user—
 hit me up.`,
-    image: '/images/atrnd-contact-mobile-v1.png',
-    imageDesktop: '/images/atrnd-contact-v1.png'
+    image: `${import.meta.env.BASE_URL}images/atrnd-contact-mobile-v1.png`,
+    imageDesktop: `${import.meta.env.BASE_URL}images/atrnd-contact-v1.png`
   }
 }
 

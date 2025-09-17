@@ -12,19 +12,19 @@ function WorkSection({ onClick, isGlitchActive, onHover }) {
       {/* Mobile Image */}
       <div
         className="absolute inset-0 bg-contain bg-center bg-no-repeat md:hidden"
-        style={{ backgroundImage: 'url(/images/atrnd-work-mobile-v1.png)' }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/atrnd-work-mobile-v1.png)` }}
       ></div>
 
       {/* Desktop Image */}
       <div
         className="absolute inset-0 bg-contain bg-center bg-no-repeat hidden md:block"
-        style={{ backgroundImage: 'url(/images/atrnd-work-v1.png)' }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/atrnd-work-v1.png)` }}
       ></div>
 
       {/* Glitch Effect Overlay */}
       <GlitchCanvas
-        imageSrc="/images/atrnd-work-v1.png"
-        mobileImageSrc="/images/atrnd-work-mobile-v1.png"
+        imageSrc={`${import.meta.env.BASE_URL}images/atrnd-work-v1.png`}
+        mobileImageSrc={`${import.meta.env.BASE_URL}images/atrnd-work-mobile-v1.png`}
         intensity="low"
         isActive={isGlitchActive}
       />
