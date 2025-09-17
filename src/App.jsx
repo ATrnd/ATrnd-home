@@ -7,12 +7,24 @@ import VisionSection from './components/VisionSection'
 import ContactSection from './components/ContactSection'
 import SectionDetail from './components/SectionDetail'
 import styles from './components/App.module.css'
+import backgroundImage from '/images/bg_0.1.jpg'
 
 function App() {
   const [currentSection, setCurrentSection] = useState(null)
   const [isAnimating, setIsAnimating] = useState(false)
   const [activeGlitchBanner, setActiveGlitchBanner] = useState(-1) // -1 = none, 0-3 = banner index
+  const [showBackground, setShowBackground] = useState(false)
   const savedScrollPosition = useRef(0)
+
+  // Handle responsive background
+  useEffect(() => {
+    const handleResize = () => {
+      setShowBackground(window.innerWidth >= 768)
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   // Define different glitch patterns with varying speeds
   const glitchPatterns = {
@@ -101,7 +113,15 @@ function App() {
 
   // Show main grid view
   return (
-    <div className={`min-h-screen bg-white text-black flex flex-col desktop-bg transition-opacity duration-150 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
+    <div
+      className={`min-h-screen bg-white text-black flex flex-col transition-opacity duration-150 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}
+      style={showBackground ? {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      } : {}}
+    >
       <Header />
 
       <main className={styles.gridWrapper}>

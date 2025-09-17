@@ -1,8 +1,9 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import styles from './SectionDetail.module.css'
 import sectionStyles from './Section.module.css'
+import backgroundImage from '/images/bg_0.1.jpg'
 
 const sectionContent = {
   about: {
@@ -47,16 +48,35 @@ hit me up.`,
 
 function SectionDetail({ section, onBack }) {
   const data = sectionContent[section]
+  const [showBackground, setShowBackground] = useState(false)
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [section])
 
+  // Handle responsive background
+  useEffect(() => {
+    const handleResize = () => {
+      setShowBackground(window.innerWidth >= 768)
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   if (!data) return null
 
   return (
-    <div className="min-h-screen bg-white text-black flex flex-col desktop-bg">
+    <div
+      className="min-h-screen bg-white text-black flex flex-col"
+      style={showBackground ? {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      } : {}}
+    >
       <Header />
 
       <main className={`flex-1 px-4 ${styles.mainContainer}`} style={{ marginTop: '41px' }}>
@@ -98,7 +118,7 @@ function SectionDetail({ section, onBack }) {
             className="cursor-pointer hover:opacity-70 transition-opacity"
             style={{ width: '66px', height: '93.8px' }}
           >
-            <img src="/back-btn-v1.svg" alt="Back" className="w-full h-full" />
+            <img src={`${import.meta.env.BASE_URL}back-btn-v1.svg`} alt="Back" className="w-full h-full" />
           </button>
         </div>
 
@@ -111,7 +131,7 @@ function SectionDetail({ section, onBack }) {
               className="cursor-pointer hover:opacity-70 transition-opacity"
               style={{ width: '66px', height: '93.8px' }}
             >
-              <img src="/back-btn-v1.svg" alt="Back" className="w-full h-full" />
+              <img src={`${import.meta.env.BASE_URL}back-btn-v1.svg`} alt="Back" className="w-full h-full" />
             </button>
           </div>
 

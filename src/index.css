@@ -25,12 +25,3 @@
   --font-ibm-3270: 'IBM 3270', 'Courier New', monospace;
 }
 
-/* Desktop background - only on 768px+ */
-@media (min-width: 768px) {
-  .desktop-bg {
-    background-image: url('./images/bg_0.1.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-  }
-}
