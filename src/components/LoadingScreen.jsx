@@ -1,13 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
 import { useDeviceDetection } from '../hooks/useDeviceDetection'
-import GlitchCanvas from './GlitchCanvas'
 import styles from './LoadingScreen.module.css'
 import backgroundImage from '/images/bg_0.1.jpg'
 
 function LoadingScreen({ onLoadingComplete }) {
   const [loadingProgress, setLoadingProgress] = useState(0)
   const [loadingStage, setLoadingStage] = useState('INITIALIZING')
-  const [isGlitchActive, setIsGlitchActive] = useState(false)
   const deviceInfo = useDeviceDetection()
   const loadingImageRef = useRef(null)
 
@@ -38,10 +36,6 @@ function LoadingScreen({ onLoadingComplete }) {
       if (newStageIndex !== currentStage && newStageIndex < stages.length) {
         currentStage = newStageIndex
         setLoadingStage(stages[currentStage].name)
-
-        // Trigger glitch effect on stage change
-        setIsGlitchActive(true)
-        setTimeout(() => setIsGlitchActive(false), 500)
       }
 
       // Complete loading
@@ -88,25 +82,14 @@ function LoadingScreen({ onLoadingComplete }) {
         } : {}}
       />
 
-      {/* Main loading image with glitch effect */}
+      {/* Main loading image */}
       <div className={styles.imageContainer}>
         <img
           ref={loadingImageRef}
           src="/images/atrnd_loading_img_v1.png"
           alt="ATrnd Loading"
-          className={`${styles.loadingImage} ${isGlitchActive ? styles.hidden : ''}`}
+          className={styles.loadingImage}
         />
-
-        {/* Glitch canvas overlay */}
-        {loadingImageRef.current && isGlitchActive && (
-          <div className={styles.glitchOverlay}>
-            <GlitchCanvas
-              imageSrc="/images/atrnd_loading_img_v1.png"
-              intensity="medium"
-              isActive={isGlitchActive}
-            />
-          </div>
-        )}
       </div>
 
       {/* Progress bar */}
