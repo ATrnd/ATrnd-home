@@ -1,0 +1,145 @@
+.loadingContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-orbitron);
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: -1;
+}
+
+.imageContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingImage {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  z-index: 1;
+  transition: opacity 0.1s ease;
+}
+
+.loadingImage.hidden {
+  opacity: 0;
+}
+
+.glitchOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.progressContainer {
+  position: absolute;
+  bottom: 120px;
+  left: 80px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.progressBar {
+  width: 200px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: black;
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  min-width: 40px;
+  font-family: var(--font-ibm-3270);
+}
+
+.statusText {
+  position: absolute;
+  bottom: 96px;
+  left: 80px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: var(--font-ibm-3270);
+}
+
+/* Device-specific styles */
+.mobileLoading {
+  padding: 20px;
+}
+
+.mobileLoading .progressContainer {
+  bottom: 60px;
+  left: 20px;
+}
+
+.mobileLoading .statusText {
+  bottom: 46px;
+  left: 20px;
+  font-size: 10px;
+}
+
+.mobileLoading .progressBar {
+  width: 150px;
+}
+
+.tabletLoading {
+  padding: 40px;
+}
+
+.tabletLoading .progressContainer {
+  bottom: 80px;
+  left: 40px;
+}
+
+.tabletLoading .statusText {
+  bottom: 66px;
+  left: 40px;
+}
+
+.desktopLoading {
+  /* Default styles already defined above */
+}
+
+.ultrawideLoading .progressContainer {
+  bottom: 150px;
+  left: 120px;
+}
+
+.ultrawideLoading .statusText {
+  bottom: 116px;
+  left: 120px;
+}
+
+.ultrawideLoading .progressBar {
+  width: 300px;
+}

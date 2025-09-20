@@ -6,10 +6,13 @@ import WorkSection from './components/WorkSection'
 import VisionSection from './components/VisionSection'
 import ContactSection from './components/ContactSection'
 import SectionDetail from './components/SectionDetail'
+import LoadingScreen from './components/LoadingScreen'
 import styles from './components/App.module.css'
 import backgroundImage from '/images/bg_0.1.jpg'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true)
+  const [isAppVisible, setIsAppVisible] = useState(false)
   const [currentSection, setCurrentSection] = useState(null)
   const [isAnimating, setIsAnimating] = useState(false)
   const [activeGlitchBanner, setActiveGlitchBanner] = useState(-1) // -1 = none, 0-3 = banner index
@@ -102,10 +105,24 @@ function App() {
     }
   }
 
+  // Handle loading completion
+  const handleLoadingComplete = () => {
+    setIsLoading(false)
+    // Trigger fade-in after a short delay
+    setTimeout(() => {
+      setIsAppVisible(true)
+    }, 100)
+  }
+
+  // Show loading screen
+  if (isLoading) {
+    return <LoadingScreen onLoadingComplete={handleLoadingComplete} />
+  }
+
   // Show section detail if a section is selected
   if (currentSection) {
     return (
-      <div className={`transition-opacity duration-150 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
+      <div className={`transition-opacity duration-500 ${isAnimating ? 'opacity-0' : (isAppVisible ? 'opacity-100' : 'opacity-0')}`}>
         <SectionDetail section={currentSection} onBack={handleBackClick} />
       </div>
     )
@@ -114,7 +131,7 @@ function App() {
   // Show main grid view
   return (
     <div
-      className={`min-h-screen bg-white text-black flex flex-col transition-opacity duration-150 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}
+      className={`min-h-screen bg-white text-black flex flex-col transition-opacity duration-500 ease-out ${isAnimating ? 'opacity-0' : (isAppVisible ? 'opacity-100' : 'opacity-0')}`}
       style={showBackground ? {
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
